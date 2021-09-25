@@ -1,0 +1,11 @@
+.home__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.home__box__react-logo {
+  height: 100px;
+}
+

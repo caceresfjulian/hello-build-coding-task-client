@@ -1,0 +1,11 @@
+.navigation-icon {
+  font-size: 36px;
+  color: #18D399;
+}
+
+.navigation-icon-holder {
+  width: 180px;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+}
