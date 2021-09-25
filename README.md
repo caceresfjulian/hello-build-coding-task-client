@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Hello Build Test Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developed as a technical test for a software developer position.
+
+To create the client template was run npx create-react-app.
+
+[Create React App](https://github.com/facebook/create-react-app).
+
+For the http requests, Axios is the module in charge (npm i axios). 
 
 ## Available Scripts
 
