@@ -5,6 +5,7 @@
 
 .repository__list {
   width: 100%;
+  justify-content: center;
 }
 
 .repository__card {

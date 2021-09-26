@@ -11,7 +11,6 @@ function AuthContextProvider(props) {
   const [ghRepos, setGhRepos] = useState(undefined);
   const [code, setCode] = useState(undefined);
 
-
   async function getLogin() {
     await axios.get("http://localhost:4000/users/loggedin").then((res) => {
       setLoggedIn(res.data.value);
@@ -21,19 +20,25 @@ function AuthContextProvider(props) {
 
   async function getGitHubLogin() {
     await axios.get("http://localhost:4000/users/gh-signedin").then((res) => {
-      setGhLoggedIn(res.data.value);
-      setGhUser(res.data.payload.ghData);
-      setCode(res.data.payload.accessToken);
+      try {  
+        setGhLoggedIn(res.data.value);      
+        res.data.value ? setGhUser(res.data.payload.ghData) : void(0);
+        res.data.payload ? setCode(res.data.payload.accessToken) : void(0);
+      } catch (err) {
+        console.log(err);
+      }
     });
   }
 
-  async function getGitHubRepos(){
-    await axios.get(`http://localhost:4000/github/repos?code=${code}`).then((res)=>{
-      setGhRepos(res.data);
-    }).catch((err)=>{
-      console.log(err)
-    })
-    
+  async function getGitHubRepos() {
+    await axios
+      .get(`http://localhost:4000/github/repos?code=${code}`)
+      .then((res) => {
+        setGhRepos(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   useEffect(() => {
@@ -41,7 +46,7 @@ function AuthContextProvider(props) {
     getGitHubLogin();
   }, []);
 
-  if (typeof code === "string"){
+  if (typeof code === "string") {
     getGitHubRepos();
   }
 
@@ -54,7 +59,7 @@ function AuthContextProvider(props) {
         ghLoggedIn,
         ghUser,
         setGhUser,
-        ghRepos
+        ghRepos,
       }}
     >
       {props.children}

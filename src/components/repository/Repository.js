@@ -20,6 +20,6 @@ export default function Repository() {
       </div>
     );
   } else {
-    return <h1>Cargando...</h1>;
+    return <h1 className="fw-light text-center">Cargando...</h1>;
   }
 }

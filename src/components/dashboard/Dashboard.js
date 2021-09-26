@@ -7,12 +7,33 @@ import Repository from "../repository/Repository";
 export default function Dashboard() {
   const { ghUser, ghRepos } = useContext(AuthContext);
 
+  // const [searchTerm, setSearchTerm] = useState('');
+
   if (ghUser !== undefined) {
     return (
       <div className="dashboard container">
-        <img src={ghUser.avatar_url} alt="Avatar" className="dashboard__profile-pic"/>
-        <h1 className="fw-light d-inline">Welcome <span className="fst-italic dashboard__name">@{ghUser.login}</span></h1>
-        <Repository/>
+        <div className="dashboard__header">
+          <div className="dashboard__header__main">
+            <img
+              src={ghUser.avatar_url}
+              alt="Avatar"
+              className="dashboard__profile-pic"
+            />
+            <h1 className="fw-light d-inline">
+              Welcome{" "}
+              <span className="fst-italic dashboard__name">
+                @{ghUser.login}
+              </span>
+            </h1>
+          </div>
+          <input
+            className="form-control dashboard__search-box"
+            placeholder="Search"
+            type="text"
+            // onChange={(e)=>setSearchTerm(e.target.value)}
+          />
+        </div>
+        <Repository />
       </div>
     );
   } else {
