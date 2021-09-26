@@ -5,13 +5,14 @@ import AuthContext from "../../Context";
 
 export default function Logout() {
 
-  const {getLogin} = useContext(AuthContext);
+  const {getLogin, setGhUser} = useContext(AuthContext);
 
   const history = useHistory();
 
   async function logout () {
     await axios.get('http://localhost:4000/users/logout');
     await getLogin();
+    setGhUser(undefined);
     history.push('/');
   }
 

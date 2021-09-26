@@ -18,7 +18,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
+  transition: transform 1s;
+  border-radius: 20px;
+}
+
+.github-box:hover {
+  transform: scale(0.9);
 }
 
 .github-animation {
@@ -27,3 +33,19 @@
   margin: 40px 0;
 }
 
+.dashboard {
+  color: #fff;
+}
+
+.dashboard__name {
+  font-size: 30px;
+}
+
+.dashboard__profile-pic {
+  width: 100px;
+  border-radius: 50%;
+  display: inline;
+  margin-right: 20px;
+  border: 3px solid #18D399;
+  box-shadow: 0px 0px 10px #18D399;
+}
