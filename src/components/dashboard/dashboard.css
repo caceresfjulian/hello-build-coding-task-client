@@ -1,0 +1,29 @@
+.github {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.github-box {
+  width: 400px;
+  height: 350px;
+  margin: 0 auto;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.github-animation {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 40px 0;
+}
+

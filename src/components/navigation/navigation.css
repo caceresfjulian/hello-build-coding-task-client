@@ -1,3 +1,11 @@
+.navbar {
+  z-index: 10;
+}
+
+.nav-logout {
+  cursor: pointer;
+}
+
 .navigation-icon {
   font-size: 36px;
   color: #18D399;
