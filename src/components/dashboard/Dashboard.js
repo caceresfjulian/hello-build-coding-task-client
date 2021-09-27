@@ -7,7 +7,20 @@ import Repository from "../repository/Repository";
 export default function Dashboard() {
   const { ghUser, ghRepos } = useContext(AuthContext);
 
-  // const [searchTerm, setSearchTerm] = useState('');
+  const [filteredRepos, setFilteredRepos] = useState([]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [filterOn, setFilterOn] = useState(false);
+
+
+  function filterRepos(e) {
+    setFilteredRepos(
+      ghRepos.filter((repo) => repo.name.indexOf(searchTerm) !== -1)
+    );
+    setSearchTerm("");
+    setFilterOn(!filterOn);
+  }
 
   if (ghUser !== undefined) {
     return (
@@ -26,14 +39,27 @@ export default function Dashboard() {
               </span>
             </h1>
           </div>
-          <input
-            className="form-control dashboard__search-box"
-            placeholder="Search"
-            type="text"
-            // onChange={(e)=>setSearchTerm(e.target.value)}
-          />
+          <div className="d-flex">
+            <input
+              className="form-control dashboard__search-box"
+              placeholder="Search"
+              type="text"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+            />
+            <button
+              className="btn dashboard__filter__btn"
+              onClick={(e) => filterRepos(e)}
+            >
+              {filterOn ? <>Reset</> : <>Filter</>}
+            </button>
+          </div>
         </div>
-        <Repository />
+        {filterOn ? (
+          <Repository repos={filteredRepos}  />
+        ) : (
+          <Repository repos={ghRepos}  />
+        )}
       </div>
     );
   } else {

@@ -39,4 +39,9 @@
 .repository__card__icon {
   font-size: 40px;
   padding: 15px 0;
+  transition: opacity 0.3s ease-in
+}
+
+.repository__card__icon:hover {
+  opacity: 0.6;
 }

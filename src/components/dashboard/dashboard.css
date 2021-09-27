@@ -60,4 +60,15 @@
 .dashboard__search-box {
   max-width: 250px;
   justify-self: flex-end;
+  margin-right: 10px;
+}
+
+.dashboard__filter__btn {
+  background-color: #18D399 !important;
+  transition: all 0.3s ease-in !important;
+}
+
+.dashboard__filter__btn:hover {
+  transform: scale(0.96);
+  opacity: 0.8;
 }

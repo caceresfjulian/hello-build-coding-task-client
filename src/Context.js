@@ -43,10 +43,10 @@ function AuthContextProvider(props) {
 
   useEffect(() => {
     getLogin();
-    getGitHubLogin();
+    getGitHubLogin()
   }, []);
 
-  if (typeof code === "string") {
+  if (ghRepos === undefined && typeof code === "string") {
     getGitHubRepos();
   }
 
@@ -60,6 +60,8 @@ function AuthContextProvider(props) {
         ghUser,
         setGhUser,
         ghRepos,
+        setGhRepos, 
+        setCode
       }}
     >
       {props.children}
