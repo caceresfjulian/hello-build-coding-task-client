@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "./dashboard.css";
 import animatedGithub from "./animated-github.gif";
 import AuthContext from "../../Context";
