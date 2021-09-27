@@ -12,14 +12,14 @@ function AuthContextProvider(props) {
   const [code, setCode] = useState(undefined);
 
   async function getLogin() {
-    await axios.get("http://localhost:4000/users/loggedin").then((res) => {
+    await axios.get("https://hello-build-coding-task-server.herokuapp.com/users/loggedin").then((res) => {
       setLoggedIn(res.data.value);
       setValidEmail(res.data.email);
     });
   }
 
   async function getGitHubLogin() {
-    await axios.get("http://localhost:4000/users/gh-signedin").then((res) => {
+    await axios.get("https://hello-build-coding-task-server.herokuapp.com/users/gh-signedin").then((res) => {
       try {  
         setGhLoggedIn(res.data.value);      
         res.data.value ? setGhUser(res.data.payload.ghData) : void(0);
@@ -32,7 +32,7 @@ function AuthContextProvider(props) {
 
   async function getGitHubRepos() {
     await axios
-      .get(`http://localhost:4000/github/repos?code=${code}`)
+      .get(`https://hello-build-coding-task-server.herokuapp.com/github/repos?code=${code}`)
       .then((res) => {
         setGhRepos(res.data);
       })

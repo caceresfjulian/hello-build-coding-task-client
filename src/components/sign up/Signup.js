@@ -18,7 +18,7 @@ export default function Signup() {
         passwordVerify
       }
 
-      axios.post("http://localhost:4000/users/signup", userData).then((res) => {
+      axios.post("https://hello-build-coding-task-server.herokuapp.com/users/signup", userData).then((res) => {
         if (res.status === 200){
           swal("Registered!", "Now, let's login", "success");
         } else {

@@ -10,7 +10,7 @@ export default function Logout() {
   const history = useHistory();
 
   async function logout () {
-    await axios.get('http://localhost:4000/users/logout');
+    await axios.get('https://hello-build-coding-task-server.herokuapp.com/users/logout');
     await getLogin();
     setGhUser(undefined);
     setGhRepos(undefined);
